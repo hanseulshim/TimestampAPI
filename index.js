@@ -18,7 +18,7 @@ app.get('/:date', function(req, res) {
   var dateUnix = Math.floor(dateNat.getTime()/1000);
   var date = {
     "unix" : dateUnix,
-    "natural" : monthNames[dateNat.getMonth()]+" "+dateNat.getDate()+", "+dateNat.getFullYear()
+    "natural" : dateNat.toString() === "Invalid Date" ? null : monthNames[dateNat.getMonth()]+" "+dateNat.getDate()+", "+dateNat.getFullYear()
   }
   res.send(date);
 
