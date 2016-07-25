@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 // respond with "hello world" when a GET request is made to the homepage
 
+var port = process.env.PORT || 3000;
+
 var monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
@@ -21,5 +23,6 @@ app.get('/:date', function(req, res) {
   res.send(date);
 
 });
-// app.listen(3000);
-app.set('port', process.env.PORT || 3000);
+app.listen(port, function(){
+  console.log("Running on port: " + port);
+});
